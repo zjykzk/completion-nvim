@@ -146,7 +146,8 @@ M.triggerFunction = function(_, params)
     M.callback = true
     return
   end
-  vim.lsp.buf_request(params.bufnr, 'textDocument/completion', position_param, function(err, _, result)
+  vim.lsp.buf_request(params.bufnr, 'textDocument/completion', position_param, function(err, result,
+              ctx, _)
     if err or not result then
       M.callback = true
       return
